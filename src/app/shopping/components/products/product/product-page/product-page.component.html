@@ -9,5 +9,6 @@
                 <option value="">Select Trade Shoe Size</option>
                 <option *ngFor="let size of shoeSizes;" [ngValue]="size">{{size}}</option>
         </select>
+        <button (click)="onSubmit()">Submit Order</button>
     </div>
 </div>

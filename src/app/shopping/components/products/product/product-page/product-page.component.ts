@@ -12,6 +12,8 @@ export class ProductPageComponent implements OnInit {
   product: any;
   isDataAvailable: Boolean;
   shoeSizes: Array<String>;
+  tradeShoeSize: String;
+  desiredShoeSize: String;
 
   constructor(
     private route: ActivatedRoute,
@@ -32,11 +34,14 @@ export class ProductPageComponent implements OnInit {
   }
 
   tradeShoe($event) {
-    console.log($event.target.value);
+    this.tradeShoeSize = $event.target.value;
   }
   
   desiredShoe($event) {
-    
+    this.desiredShoeSize = $event.target.value;
   }
 
+  onSubmit() {
+    
+  }
 }
