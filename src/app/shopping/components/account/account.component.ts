@@ -1,15 +1,15 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {AuthService} from 'shared/services/auth.service';
 import {Router} from '@angular/router';
 import {Subscription} from 'rxjs/Subscription';
 import {UserService} from 'shared/services/user.service';
 
 @Component({
-  selector: 'app-my-account',
-  templateUrl: './my-account.component.html',
-  styleUrls: ['./my-account.component.css']
+  selector: 'app-account',
+  templateUrl: './account.component.html',
+  styleUrls: ['./account.component.css']
 })
-export class MyAccountComponent implements OnInit {
+export class AccountComponent implements OnInit, OnDestroy {
 
   disableBtn: boolean;
   userId: string;
@@ -29,9 +29,13 @@ export class MyAccountComponent implements OnInit {
           });
   }
 
+  ngOnDestroy() {
+      this.userSubscription.unsubscribe();
+  }
+
   save(profile) {
-      this.userService.save(profile.addressLine1, profile.addressLine2,
-          profile.city, profile.state, profile.zip, this.userId)
+      this.userService.save(this.userId, this.userName, profile.addressLine1, profile.addressLine2,
+          profile.city, profile.state, profile.zip)
           .then(ref => {
               this.router.navigate(['']);
           })

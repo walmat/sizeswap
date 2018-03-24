@@ -1,5 +1,6 @@
 <form #profileForm="ngForm" (ngSubmit)="save(profileForm.value)" novalidate>
 
+  <h2 style="text-align: center;">Shipping Information</h2>
   <div class="form-group">
     <label for="addressLine1">Address Line 1</label>
     <input type="text" name="addressLine1" ngModel #addressLine1="ngModel" id="addressLine1" class="form-control" required>

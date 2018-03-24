@@ -12,7 +12,8 @@ import { ProductsComponent } from './components/products/products.component';
 import { ShippingFormComponent } from './components/shipping-form/shipping-form.component';
 import { ShopingCartComponent } from './components/shoping-cart/shoping-cart.component';
 import { ShoppingCartSummaryComponent } from './components/shopping-cart-summary/shopping-cart-summary.component';
-import { MyAccountComponent } from './components/my-account/my-account.component';
+import { AccountComponent } from './components/account/account.component';
+import { PaypalComponent } from './components/paypal/paypal.component';
 
 @NgModule({
   imports: [
@@ -20,8 +21,8 @@ import { MyAccountComponent } from './components/my-account/my-account.component
     RouterModule.forChild([
     { path: 'cart', component: ShopingCartComponent },
     { path: 'Products', component: ProductsComponent },
-    { path: 'myorders', component: MyOrdersComponent, canActivate: [AuthGuardService] },
-    { path: 'myaccount', component: MyAccountComponent, canActivate: [AuthGuardService] },
+    { path: 'orders', component: MyOrdersComponent, canActivate: [AuthGuardService] },
+    { path: 'account', component: AccountComponent, canActivate: [AuthGuardService] },
     { path: 'checkout', component: CheckOutComponent, canActivate: [AuthGuardService] },
     { path: 'order-success/:id', component: OrderSuccssComponent, canActivate: [AuthGuardService] },
     { path: 'order-details/:id', component: OrderViewComponent, canActivate: [AuthGuardService] }
@@ -37,7 +38,8 @@ import { MyAccountComponent } from './components/my-account/my-account.component
     ShoppingCartSummaryComponent,
     ShippingFormComponent,
     OrderViewComponent,
-    MyAccountComponent
+    AccountComponent,
+    PaypalComponent
   ]
 })
 export class ShoppingModule { }
