@@ -19,7 +19,7 @@ import { ProductPageComponent } from './components/products/product/product-page
     RouterModule.forChild([
     { path: 'cart', component: ShopingCartComponent },
     { path: 'products', component: ProductsComponent },
-    { path: 'products/:id', component: ProductPageComponent},
+    { path: 'products/:title', component: ProductPageComponent},
     { path: 'myorders', component: MyOrdersComponent, canActivate: [AuthGuardService] },
     // { path: 'myaccount', component: MyAccountComponent, canActivate: [AuthGuardService] },
     { path: 'checkout', component: CheckOutComponent, canActivate: [AuthGuardService] },

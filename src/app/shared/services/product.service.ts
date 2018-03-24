@@ -23,6 +23,11 @@ export class ProductService {
     return this.db.object('/products/' + id);
   }
 
+  async getByTitle(title: string) {
+    let results = await this.db.database.ref('/products').orderByChild('title').equalTo(title).once("value");;
+    return results.val();
+  }
+
   updateById(id, product) {
     return this.db.object('/products/' + id).update(product);
   }

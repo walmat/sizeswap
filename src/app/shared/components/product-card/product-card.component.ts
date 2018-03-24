@@ -18,7 +18,7 @@ export class ProductCardComponent implements OnInit {
 
   constructor(
     private cartService: ShoppingCartService,
-    private router: Router
+    private route: Router
   ) { }
 
   ngOnInit() {
@@ -30,7 +30,7 @@ export class ProductCardComponent implements OnInit {
 
   selectProduct() {
     let titleWithDashes = this.product.title.split(' ').join('-');
-    this.router.navigateByUrl(`/products/${titleWithDashes}`);
+    this.route.navigateByUrl(`/products/${titleWithDashes}`);
   }
 
 }
