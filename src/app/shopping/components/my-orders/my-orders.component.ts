@@ -1,7 +1,7 @@
 import { AuthService } from 'shared/services/auth.service';
 import { Observable } from 'rxjs/Observable';
 import { OrderService } from 'shared/services/order.service';
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-my-orders',
@@ -20,7 +20,5 @@ export class MyOrdersComponent implements OnInit {
     this.order$ = this.auth.user$
       .switchMap(user => this.orderService.getOrderByUser(user.uid));
   }
-
-
 
 }

@@ -10,14 +10,14 @@
       </div>
 
       <div class="form-group">
-        <label for="price">Price</label>
+        <label for="swaps">Swaps</label>
         <div class="input-group">
-          <span class="input-group-addon">₹</span>
-          <input #price="ngModel" [(ngModel)]="product.price" name="price" type="number" class="form-control" id="price" required [min]="0">
+          <span class="input-group-addon">#</span>
+          <input #swaps="ngModel" [(ngModel)]="product.swaps" name="swaps" type="number" class="form-control" id="swaps" required [min]="0">
         </div>
-        <div class="alert alert-danger" *ngIf="price.touched && price.invalid">
-          <div *ngIf="price.errors.required">Price is requried.</div>
-          <div *ngIf="price.errors.min">Price should be zero or highter.</div>
+        <div class="alert alert-danger" *ngIf="swaps.touched && swaps.invalid">
+          <div *ngIf="price.errors.required">Swaps is requried.</div>
+          <div *ngIf="price.errors.min">Swaps should be zero or higher.</div>
         </div>
       </div>
 
@@ -26,7 +26,7 @@
         <select #category="ngModel" [(ngModel)]="product.category" name="category" id="category" class="form-control" required>
           <option></option>
           <option *ngFor="let c of categories$ | async" [value]="c.$key">
-            {{c.name}}
+            {{c.$key}}
           </option>
         </select>
         <div class="alert alert-danger" *ngIf="category.touched && category.invalid">

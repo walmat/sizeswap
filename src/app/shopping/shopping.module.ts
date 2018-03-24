@@ -20,6 +20,7 @@ import { ShoppingCartSummaryComponent } from './components/shopping-cart-summary
     { path: 'cart', component: ShopingCartComponent },
     { path: 'Products', component: ProductsComponent },
     { path: 'myorders', component: MyOrdersComponent, canActivate: [AuthGuardService] },
+    // { path: 'myaccount', component: MyAccountComponent, canActivate: [AuthGuardService] },
     { path: 'checkout', component: CheckOutComponent, canActivate: [AuthGuardService] },
     { path: 'order-success/:id', component: OrderSuccssComponent, canActivate: [AuthGuardService] },
     { path: 'order-details/:id', component: OrderViewComponent, canActivate: [AuthGuardService] }
