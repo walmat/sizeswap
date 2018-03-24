@@ -39,32 +39,20 @@ export class ProductsComponent implements OnInit {
     this.productService.getAll()
       .switchMap(products => {
         this.products = products;
+        this.filteredProducts = products;
         return this.route.queryParamMap;
       })
       .subscribe(params => {
         this.category = params.get('category');
-        this.applyFilter();
+        console.log(this.category);
       });
-  }
-
-  private applyFilter() {
-    this.filteredProducts = !this.category ? this.products
-      : this.products.filter(e => e.category === this.category);
   }
 
   search($event) {
     let searchTerm = $event.target.value;
-
-    if(searchTerm) {
-      // console.log(this.searchService.getSearchTerm($event.target.value));
-      let producttShit = this.searchService.getSearchTerm($event.target.value).map(products => products.map((product) => product.title));
-      let productTitles;
-      producttShit.subscribe((keys) => productTitles = keys);
-      let filteredProducts = productTitles.filter((title) => {
-        return title.toUpperCase().includes(searchTerm.toUpperCase());
-      });
-      console.log(filteredProducts);
-    }
+    this.filteredProducts = this.products.filter((product) => {
+      return product.title.toUpperCase().includes(searchTerm.toUpperCase()) || product.category.toUpperCase().includes(searchTerm.toUpperCase());
+    });
   }
 
 
