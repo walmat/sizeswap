@@ -21,7 +21,7 @@ export class UserService {
   }
 
   async save(ad1, ad2, city, state, zip, uID) {
-      return this.db.object('/user/' + uID).update( {
+      return this.db.object('/user/' + uID + '/shipping-info/').update( {
          address: ad1 + ad2,
          city: city,
          state: state,
