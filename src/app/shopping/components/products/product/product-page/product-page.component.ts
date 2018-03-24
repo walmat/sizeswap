@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { ProductService } from 'shared/services/product.service';
 
 @Component({
@@ -8,12 +8,15 @@ import { ProductService } from 'shared/services/product.service';
   styleUrls: ['./product-page.component.css']
 })
 export class ProductPageComponent implements OnInit {
-  private product: any;
+  product: any;
+  isDateAvailable: Boolean;
 
   constructor(
     private route: ActivatedRoute,
-    private productService: ProductService
-  ) { }
+    private productService: ProductService,
+  ) { 
+    this.isDateAvailable = false;
+  }
 
   async ngOnInit() {
     let titleDashes;
@@ -22,7 +25,9 @@ export class ProductPageComponent implements OnInit {
     });
     let title = titleDashes.split('-').join(' ');
     this.product = await this.productService.getByTitle(title);
+    this.isDateAvailable = true;
     console.log(this.product);
+    console.log('DONE');
   }
 
 }
