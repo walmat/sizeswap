@@ -1,17 +1,13 @@
 <div *ngIf="isDataAvailable">
     <div>
         <product-card [product]="product" [width]="20" [shopping-cart]="cart"></product-card>
-        <select id='desired-shoe' name="Desired Shoe Size">
+        <select id='desired-shoe' name="Desired Shoe Size" (input)="desiredShoe($event)">
                 <option value="">Select Desired Shoe Size</option>
-                <ng-container *ngFor="let size of shoeSizes;">
-                    <option value="{{size}}">{{size}}</option>
-                </ng-container>
+                <option *ngFor="let size of shoeSizes;" [ngValue]="size">{{size}}</option>
         </select>
-        <select id='trade-shoe' name="Trade Shoe Size">
+        <select id='trade-shoe' name="Trade Shoe Size" (input)="tradeShoe($event)">
                 <option value="">Select Trade Shoe Size</option>
-                <ng-container *ngFor="let size of shoeSizes;">
-                    <option id="trade-shoe" value="{{size}}">{{size}}</option>
-                </ng-container>
+                <option *ngFor="let size of shoeSizes;" [ngValue]="size">{{size}}</option>
         </select>
     </div>
 </div>
