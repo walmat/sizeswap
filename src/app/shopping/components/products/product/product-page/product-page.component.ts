@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProductService } from 'shared/services/product.service';
+import getShoeSizes from 'app/getShoeSizes';
 
 @Component({
   selector: 'app-product-page',
@@ -10,6 +11,7 @@ import { ProductService } from 'shared/services/product.service';
 export class ProductPageComponent implements OnInit {
   product: any;
   isDataAvailable: Boolean;
+  shoeSizes: Array<String>;
 
   constructor(
     private route: ActivatedRoute,
@@ -25,9 +27,8 @@ export class ProductPageComponent implements OnInit {
     });
     let title = titleDashes.split('-').join(' ');
     this.product = await this.productService.getByTitle(title);
+    this.shoeSizes = getShoeSizes();
     this.isDataAvailable = true;
-    console.log(this.product);
-    console.log('DONE');
   }
 
 }

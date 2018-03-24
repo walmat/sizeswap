@@ -26,7 +26,10 @@ export class ProductService {
   async getByTitle(title: string) {
     let results = await this.db.database.ref('/products').orderByChild('title').equalTo(title).once("value");
     let product = results.val();
-    return product[(Object.keys(product)[0])];
+    let ID = Object.keys(product)[0];
+    product = product[ID];
+    product.ID = ID;
+    return product;
 
   }
 

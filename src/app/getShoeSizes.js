@@ -1,4 +1,4 @@
-export function getShoeSizes() {
+export default function getShoeSizes() {
     return [
         '4',
         '4.5',
