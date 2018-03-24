@@ -1,3 +1,6 @@
 <div *ngIf="isDataAvailable">
-    <img class="card-img-top" [src]="product.imageUrl" [alt]="product.title">
+    <div>
+        <product-card [product]="product" [width]="20" [shopping-cart]="cart"></product-card>
+        <select name=""></select>
+    </div>
 </div>

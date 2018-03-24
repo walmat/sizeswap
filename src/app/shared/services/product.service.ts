@@ -1,5 +1,6 @@
 import { AngularFireDatabase } from 'angularfire2/database';
 import { Injectable } from '@angular/core';
+import * as firebase from "firebase";
 
 
 @Injectable()
@@ -25,7 +26,11 @@ export class ProductService {
 
   async getByTitle(title: string) {
     let results = await this.db.database.ref('/products').orderByChild('title').equalTo(title).once('value');
-    return results.val();
+    let product = results.val();
+    let ID = Object.keys(product)[0];
+    product = product[ID];
+    product.ID = ID;
+    return product;
   }
 
   updateById(id, product) {
