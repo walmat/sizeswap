@@ -17,7 +17,10 @@ export class ProductPageComponent implements OnInit {
   isDataAvailable: Boolean;
   titleDashes;
   shoeSizes: Array<String>;
-    constructor(
+  trade_shoe: number;
+  desired_shoe: number;
+
+  constructor(
     private route: ActivatedRoute,
     private productService: ProductService,
     private userService: UserService,
@@ -39,6 +42,10 @@ export class ProductPageComponent implements OnInit {
 
   createSwapRecord() {
       this.productService.createSwap(this.product.ID, this.appUser.ID, 5, 5);
+  }
+
+  trade($event) {
+    console.log($event.target.value);
   }
 
 }
