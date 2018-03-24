@@ -7,6 +7,7 @@ import { ProductService } from 'shared/services/product.service';
 import { IProduct } from 'shared/models/product';
 import { Component, OnInit } from '@angular/core';
 import 'rxjs/add/operator/switchMap';
+import { ProductCardComponent } from 'shared/components/product-card/product-card.component';
 
 @Component({
   selector: 'app-products',
@@ -17,7 +18,6 @@ export class ProductsComponent implements OnInit {
 
   products: IProduct[] = [];
   filteredProducts: IProduct[];
-  category: string;
   cart$: Observable<ShoppingCart>;
 
   constructor(
@@ -35,17 +35,18 @@ export class ProductsComponent implements OnInit {
     this.productService.getAll()
       .switchMap(products => {
         this.products = products;
+        this.filteredProducts = products;
         return this.route.queryParamMap;
       })
-      .subscribe(params => {
-        this.category = params.get('category');
-        this.applyFilter();
+      .subscribe(params => {;
       });
   }
 
-  private applyFilter() {
-    this.filteredProducts = !this.category ? this.products
-      : this.products.filter(e => e.category === this.category);
+  search($event) {
+    let searchTerm = $event.target.value;
+    this.filteredProducts = this.products.filter((product) => {
+      return product.title.toUpperCase().includes(searchTerm.toUpperCase()) || product.category.toUpperCase().includes(searchTerm.toUpperCase());
+    });
   }
 
 
