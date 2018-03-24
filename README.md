@@ -35,8 +35,3 @@ A framework setup to swap sizes between shoes. Built with Angular 4 and Firebase
 
 ```
 
-----------
-
-
-
-
