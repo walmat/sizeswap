@@ -1,7 +1,11 @@
 <div class="card" [style.width.rem]="width">
-  <img *ngIf="product.imageUrl" class="card-img-top" [src]="product.imageUrl" [alt]="product.title">
-  <div class="card-body">
-    <h6 class="card-title" style="text-align: center;">{{product.title}}</h6>
+  <div style="cursor: pointer">
+    <a href="/Products/test">
+      <img *ngIf="product.imageUrl" class="card-img-top" [src]="product.imageUrl" [alt]="product.title">
+      <div class="card-body">
+        <h6 class="card-title" style="text-align: center;" >{{product.title}}</h6>
+      </div>
+    </a>
   </div>
   <!--<div *ngIf="showActions && shoppingCart" class="card-footer">-->
     <!--<button *ngIf="!shoppingCart.itemsMap || shoppingCart?.getQty(product) === 0; else updateQty" (click)="addToCart()" class="btn btn-secondary btn-block">Add to Cart</button>-->
