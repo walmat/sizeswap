@@ -20,8 +20,8 @@ export class ProductCardComponent implements OnInit {
   ngOnInit() {
   }
 
-  addToCart() {
-    this.cartService.addToCart(this.product);
-  }
+  // addToCart() {
+  //   this.cartService.addToCart(this.product);
+  // }
 
 }

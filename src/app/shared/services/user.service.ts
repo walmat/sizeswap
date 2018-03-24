@@ -20,4 +20,15 @@ export class UserService {
     return this.db.object('/user/' + uid) as Observable<IAppUser>;
   }
 
+  async save(uID, username, ad1, ad2, city, state, zip) {
+      return this.db.object('/user/' + uID + '/shipping-info/').update( {
+         ID: uID,
+         username: username,
+         address: ad1 + ad2,
+         city: city,
+         state: state,
+         zipcode: zip
+      });
+  }
+
 }
