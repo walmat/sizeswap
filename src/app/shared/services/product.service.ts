@@ -24,7 +24,7 @@ export class ProductService {
   }
 
   async getByTitle(title: string) {
-    let results = await this.db.database.ref('/products').orderByChild('title').equalTo(title).once("value");;
+    let results = await this.db.database.ref('/products').orderByChild('title').equalTo(title).once('value');
     return results.val();
   }
 
@@ -35,4 +35,17 @@ export class ProductService {
   deleteById(id) {
     return this.db.object('/products/' + id).remove();
   }
+
+  getSwap(product_id: string, swap_id: string) {
+    return this.db.object('/products/' + product_id + '/swaps/' + swap_id);
+  }
+
+  createSwap(id, user, size_desired, size_has) {
+    return this.db.list('/products/' + id + '/swaps/').push({
+       user: user,
+       in: size_has,
+       out: size_desired
+    });
+  }
+
 }

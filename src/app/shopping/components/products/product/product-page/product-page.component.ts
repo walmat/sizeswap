@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProductService } from 'shared/services/product.service';
+import {UserService} from 'shared/services/user.service';
+import {AuthService} from 'shared/services/auth.service';
 
 @Component({
   selector: 'app-product-page',
@@ -9,25 +11,27 @@ import { ProductService } from 'shared/services/product.service';
 })
 export class ProductPageComponent implements OnInit {
   product: any;
-  isDateAvailable: Boolean;
-
+  isDataAvailable: Boolean;
+  productID;
+  titleDashes;
   constructor(
     private route: ActivatedRoute,
     private productService: ProductService,
-  ) { 
-    this.isDateAvailable = false;
+    private userService: UserService,
+    private auth: AuthService
+  ) {
+    this.isDataAvailable = false;
   }
 
   async ngOnInit() {
-    let titleDashes;
+    this.productID = await this.route.snapshot.paramMap.get('id');
     this.route.paramMap.subscribe(params => {
-      titleDashes = params.get('title');
+      this.titleDashes = params.get('title');
     });
-    let title = titleDashes.split('-').join(' ');
+    let title = this.titleDashes.split('-').join(' ');
     this.product = await this.productService.getByTitle(title);
-    this.isDateAvailable = true;
-    console.log(this.product);
-    console.log('DONE');
+    this.isDataAvailable = true;
+    this.productService.createSwap(this.product.ID, this.auth.appUser$, 5, 5);
   }
 
 }
