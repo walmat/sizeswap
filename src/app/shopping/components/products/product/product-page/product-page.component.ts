@@ -9,13 +9,13 @@ import { ProductService } from 'shared/services/product.service';
 })
 export class ProductPageComponent implements OnInit {
   product: any;
-  isDateAvailable: Boolean;
+  isDataAvailable: Boolean;
 
   constructor(
     private route: ActivatedRoute,
     private productService: ProductService,
   ) { 
-    this.isDateAvailable = false;
+    this.isDataAvailable = false;
   }
 
   async ngOnInit() {
@@ -25,7 +25,7 @@ export class ProductPageComponent implements OnInit {
     });
     let title = titleDashes.split('-').join(' ');
     this.product = await this.productService.getByTitle(title);
-    this.isDateAvailable = true;
+    this.isDataAvailable = true;
     console.log(this.product);
     console.log('DONE');
   }
