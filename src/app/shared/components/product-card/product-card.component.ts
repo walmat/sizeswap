@@ -29,7 +29,8 @@ export class ProductCardComponent implements OnInit {
   }
 
   selectProduct() {
-    this.router.navigateByUrl(`/products/${this.product.$key}`);
+    let titleWithDashes = this.product.title.split(' ').join('-');
+    this.router.navigateByUrl(`/products/${titleWithDashes}`);
   }
 
 }

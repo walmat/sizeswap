@@ -18,8 +18,8 @@ import { ProductPageComponent } from './components/products/product/product-page
     SharedModule,
     RouterModule.forChild([
     { path: 'cart', component: ShopingCartComponent },
-    { path: 'Products', component: ProductsComponent },
-    { path: 'Products/:id', component: ProductPageComponent},
+    { path: 'products', component: ProductsComponent },
+    { path: 'products/:id', component: ProductPageComponent},
     { path: 'myorders', component: MyOrdersComponent, canActivate: [AuthGuardService] },
     // { path: 'myaccount', component: MyAccountComponent, canActivate: [AuthGuardService] },
     { path: 'checkout', component: CheckOutComponent, canActivate: [AuthGuardService] },
