@@ -38,7 +38,5 @@ A framework setup to swap sizes between shoes. Built with Angular 4 and Firebase
 ----------
 
 
-> *[The project is from an awesome [Angular 4 course](https://www.udemy.com/the-complete-angular-master-class/) (BY [MOSH HAMEDANI](https://github.com/mosh-hamedani)) which I've taken from Udemy.]*
-
 
 
