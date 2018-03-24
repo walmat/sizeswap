@@ -2,7 +2,6 @@ import { ShoppingCart } from 'shared/models/shopping-cart';
 import { Observable } from 'rxjs/Observable';
 import { Subscription } from 'rxjs/Subscription';
 import { ShoppingCartService } from 'shared/services/shopping-cart.service';
-import { SearchService } from 'shared/services/search.service';
 import { ActivatedRoute } from '@angular/router';
 import { ProductService } from 'shared/services/product.service';
 import { IProduct } from 'shared/models/product';
@@ -13,19 +12,16 @@ import { ProductCardComponent } from 'shared/components/product-card/product-car
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
-  styleUrls: ['./products.component.css'],
-  providers: [SearchService]
+  styleUrls: ['./products.component.css']
 })
 export class ProductsComponent implements OnInit {
 
   products: IProduct[] = [];
   filteredProducts: IProduct[];
-  category: string;
   cart$: Observable<ShoppingCart>;
 
   constructor(
     private cartService: ShoppingCartService,
-    private searchService: SearchService,
     private route: ActivatedRoute,
     private productService: ProductService
   ) { }
@@ -42,9 +38,7 @@ export class ProductsComponent implements OnInit {
         this.filteredProducts = products;
         return this.route.queryParamMap;
       })
-      .subscribe(params => {
-        this.category = params.get('category');
-        console.log(this.category);
+      .subscribe(params => {;
       });
   }
 
