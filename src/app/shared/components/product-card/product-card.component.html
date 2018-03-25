@@ -1,8 +1,8 @@
-<div class="card" [style.width.rem]="width">
+<div class="card" [style.width.percent]="width">
   <div style="cursor: pointer" (click)="selectProduct()">
-    <img *ngIf="product.imageUrl" class="card-img-top" [src]="product.imageUrl" [alt]="product.title">
+    <img *ngIf="product.imageUrl" class="card-img-top" [src]="product.imageUrl" [alt]="product.title" id="product-img">
     <div class="card-body">
-      <h6 class="card-title" style="text-align: center;" >{{product.title}}</h6>
+      <h6 class="card-title" id="card-title" style="text-align: center;" >{{product.title}}</h6>
     </div>
   </div>
 </div>

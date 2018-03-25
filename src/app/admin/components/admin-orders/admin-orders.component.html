@@ -1,71 +1,86 @@
 <h1>All Orders - Admin</h1>
 
-<list-order-view [order$]="order$"></list-order-view>
-
 <data-table
-  [items]="items"
-  [itemCount]="itemsCount"
-  (reload)="reloadItems($event)"
+        [items]="orderList"
+        [itemCount]="itemsCount"
 >
 
   <data-table-column
-    [property]="'title'"
-    [header]="'Title'"
-    [sortable] = "true"
-    [resizable] = "true"
+          [property]="'title'"
+          [header]="'Title'"
+          [sortable] = "true"
+          [resizable] = "true"
   >
-  <!-- <ng-template #dataTableCell let-item="item">
-    {{item.price | currency:'INR':true}}
-  </ng-template> -->
-  </data-table-column>
-  
-
-  <data-table-column
-  [property]="'userName1'"
-  [header]="'User 1'"
-  [sortable] = "true"
-  [resizable] = "true"
-  >
+    <ng-template #dataTableCell let-item="item">
+      {{item.productTitle}}
+    </ng-template>
   </data-table-column>
 
+
   <data-table-column
-  [property]="'addressUser1'"
-  [header]="'Address 1'"
-  [sortable] = "true"
-  [resizable] = "true"
+          [property]="'userName1'"
+          [header]="'User 1'"
+          [sortable] = "true"
+          [resizable] = "true"
   >
+    <ng-template #dataTableCell let-item="item">
+      {{item.user1Name}}
+    </ng-template>
   </data-table-column>
 
   <data-table-column
-  [property]="'shoeSize1'"
-  [header]="'Shoe size 1'"
-  [sortable] = "true"
-  [resizable] = "true"
+          [property]="'addressUser1'"
+          [header]="'Address 1'"
+          [sortable] = "true"
+          [resizable] = "true"
   >
+    <ng-template #dataTableCell let-item="item">
+      {{item.user1Address}}
+    </ng-template>
   </data-table-column>
 
   <data-table-column
-  [property]="'userName2'"
-  [header]="'User 2'"
-  [sortable] = "true"
-  [resizable] = "true"
+          [property]="'shoeSize1'"
+          [header]="'Shoe size 1'"
+          [sortable] = "true"
+          [resizable] = "true"
   >
+    <ng-template #dataTableCell let-item="item">
+      {{item.buyerSize}}
+    </ng-template>
   </data-table-column>
-  
-  <data-table-column
-  [property]="'addressUser2'"
-  [header]="'Address 2'"
-  [sortable] = "true"
-  [resizable] = "true"
-  >
- </data-table-column>
 
   <data-table-column
-  [property]="'shoeSize2'"
-  [header]="'Shoe size 2'"
-  [sortable] = "true"
-  [resizable] = "true"
+          [property]="'userName2'"
+          [header]="'User 2'"
+          [sortable] = "true"
+          [resizable] = "true"
   >
+    <ng-template #dataTableCell let-item="item">
+      {{item.user2Name}}
+    </ng-template>
+  </data-table-column>
+
+  <data-table-column
+          [property]="'addressUser2'"
+          [header]="'Address 2'"
+          [sortable] = "true"
+          [resizable] = "true"
+  >
+    <ng-template #dataTableCell let-item="item">
+      {{item.user2Address}}
+    </ng-template>
+  </data-table-column>
+
+  <data-table-column
+          [property]="'shoeSize2'"
+          [header]="'Shoe size 2'"
+          [sortable] = "true"
+          [resizable] = "true"
+  >
+    <ng-template #dataTableCell let-item="item">
+      {{item.requesterSize}}
+    </ng-template>
   </data-table-column>
 
 </data-table>

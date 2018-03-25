@@ -21,13 +21,13 @@
   </data-table-column>
 
   <data-table-column
-  [property]="'price'"
-  [header]="'Price'"
+  [property]="'swaps'"
+  [header]="'Swaps'"
   [sortable] = "true"
   [resizable] = "true"
   >
     <ng-template #dataTableCell let-item="item">
-      {{item.price | currency:'INR':true}}
+      {{item.swaps}}
     </ng-template>
   </data-table-column>
 
