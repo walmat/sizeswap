@@ -46,10 +46,14 @@ export class ProductService {
   }
 
   createSwap(id, user, size_desired, size_has) {
-    return this.db.list('/products/' + id + '/swaps/').push({
-       user: user,
-       in: size_has,
-       out: size_desired
+    fetch('http://localhost:3000', {
+      method: 'POST',
+      body: JSON.stringify({
+        productID: id,
+        user,
+        in: size_has,
+        out: size_desired
+      })
     });
   }
 
