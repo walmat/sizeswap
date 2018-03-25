@@ -18,7 +18,9 @@ export class AdminOrdersComponent implements OnInit {
     itemsCount = 0;
 
     tableResource: DataTableResource<IOrder>;
-    constructor(private adminOrders: AdminOrders) { }
+
+    constructor(private adminOrders: AdminOrders) {
+    }
 
     ngOnInit() {
         this.orderSubscription = this.adminOrders.getAll()
@@ -31,7 +33,7 @@ export class AdminOrdersComponent implements OnInit {
 
     private initializeDataTable(orders: IOrder[]) {
         this.tableResource = new DataTableResource(orders);
-        this.tableResource.query({ offset: 0 }).then(item => this.orderList = item);
+        this.tableResource.query({offset: 0}).then(item => this.orderList = item);
         this.tableResource.count().then(count => this.itemsCount = count);
     }
 }

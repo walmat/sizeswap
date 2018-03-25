@@ -46,7 +46,7 @@ export class ProductService {
   }
 
   createSwap(id, user, size_desired, size_has, productTitle) {
-    console.log(productTitle);
+    console.log(user);
     fetch('http://localhost:3000', {
       method: 'POST',
       body: JSON.stringify({

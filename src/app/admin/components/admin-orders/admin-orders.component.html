@@ -1,8 +1,8 @@
 <h1>All Orders - Admin</h1>
 
 <data-table
-        [items]="orderList"
-        [itemCount]="itemsCount"
+  [items]="orderList"
+  [itemCount]="itemsCount"
 >
 
   <data-table-column
@@ -11,9 +11,9 @@
           [sortable] = "true"
           [resizable] = "true"
   >
-    <ng-template #dataTableCell let-item="item">
-      {{item.productTitle}}
-    </ng-template>
+  <ng-template #dataTableCell let-item="item">
+    {{item.productTitle}}
+  </ng-template>
   </data-table-column>
 
 
@@ -23,9 +23,9 @@
           [sortable] = "true"
           [resizable] = "true"
   >
-    <ng-template #dataTableCell let-item="item">
-      {{item.user1Name}}
-    </ng-template>
+  <ng-template #dataTableCell let-item="item">
+    {{item.user1Name}}
+  </ng-template>
   </data-table-column>
 
   <data-table-column
@@ -34,9 +34,9 @@
           [sortable] = "true"
           [resizable] = "true"
   >
-    <ng-template #dataTableCell let-item="item">
-      {{item.user1Address}}
-    </ng-template>
+  <ng-template #dataTableCell let-item="item">
+    {{item.user1Address}}
+  </ng-template>
   </data-table-column>
 
   <data-table-column
@@ -45,9 +45,9 @@
           [sortable] = "true"
           [resizable] = "true"
   >
-    <ng-template #dataTableCell let-item="item">
-      {{item.buyerSize}}
-    </ng-template>
+  <ng-template #dataTableCell let-item="item">
+    {{item.buyerSize}}
+  </ng-template>
   </data-table-column>
 
   <data-table-column
@@ -56,9 +56,10 @@
           [sortable] = "true"
           [resizable] = "true"
   >
-    <ng-template #dataTableCell let-item="item">
-      {{item.user2Name}}
-    </ng-template>
+
+  <ng-template #dataTableCell let-item="item">
+    {{item.user2Name}}
+  </ng-template>
   </data-table-column>
 
   <data-table-column
@@ -67,9 +68,9 @@
           [sortable] = "true"
           [resizable] = "true"
   >
-    <ng-template #dataTableCell let-item="item">
-      {{item.user2Address}}
-    </ng-template>
+  <ng-template #dataTableCell let-item="item">
+    {{item.user2Address}}
+  </ng-template>
   </data-table-column>
 
   <data-table-column
@@ -78,9 +79,9 @@
           [sortable] = "true"
           [resizable] = "true"
   >
-    <ng-template #dataTableCell let-item="item">
-      {{item.requesterSize}}
-    </ng-template>
+  <ng-template #dataTableCell let-item="item">
+    {{item.requesterSize}}
+  </ng-template>
   </data-table-column>
 
 </data-table>
