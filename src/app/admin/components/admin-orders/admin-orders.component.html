@@ -3,9 +3,8 @@
 <list-order-view [order$]="order$"></list-order-view>
 
 <data-table
-  [items]="items"
+  [items]="orderList"
   [itemCount]="itemsCount"
-  (reload)="reloadItems($event)"
 >
 
   <data-table-column
@@ -14,9 +13,9 @@
     [sortable] = "true"
     [resizable] = "true"
   >
-  <!-- <ng-template #dataTableCell let-item="item">
-    {{item.price | currency:'INR':true}}
-  </ng-template> -->
+  <ng-template #dataTableCell let-item="item">
+    {{item.productTitle}}
+  </ng-template>
   </data-table-column>
   
 
@@ -26,6 +25,9 @@
   [sortable] = "true"
   [resizable] = "true"
   >
+  <ng-template #dataTableCell let-item="item">
+    {{item.user1Name}}
+  </ng-template>
   </data-table-column>
 
   <data-table-column
@@ -34,6 +36,9 @@
   [sortable] = "true"
   [resizable] = "true"
   >
+  <ng-template #dataTableCell let-item="item">
+    {{item.user1Address}}
+  </ng-template>
   </data-table-column>
 
   <data-table-column
@@ -42,6 +47,9 @@
   [sortable] = "true"
   [resizable] = "true"
   >
+  <ng-template #dataTableCell let-item="item">
+    {{item.buyerSize}}
+  </ng-template>
   </data-table-column>
 
   <data-table-column
@@ -50,6 +58,9 @@
   [sortable] = "true"
   [resizable] = "true"
   >
+  <ng-template #dataTableCell let-item="item">
+    {{item.user2Name}}
+  </ng-template>
   </data-table-column>
   
   <data-table-column
@@ -58,7 +69,10 @@
   [sortable] = "true"
   [resizable] = "true"
   >
- </data-table-column>
+  <ng-template #dataTableCell let-item="item">
+    {{item.user2Address}}
+  </ng-template>
+  </data-table-column>
 
   <data-table-column
   [property]="'shoeSize2'"
@@ -66,6 +80,9 @@
   [sortable] = "true"
   [resizable] = "true"
   >
+  <ng-template #dataTableCell let-item="item">
+    {{item.requesterSize}}
+  </ng-template>
   </data-table-column>
 
 </data-table>

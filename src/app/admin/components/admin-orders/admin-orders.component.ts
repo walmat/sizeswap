@@ -2,6 +2,7 @@ import { Observable } from 'rxjs/Observable';
 import { AdminOrders } from 'app/admin/services/admin-orders.service';
 import { Component, OnInit } from '@angular/core';
 import {DataTableResource} from 'angular-4-data-table';
+import { IOrder } from 'shared/models/order';
 
 @Component({
   selector: 'app-admin-orders',
@@ -13,7 +14,10 @@ export class AdminOrdersComponent implements OnInit {
 
   order$: Observable<any[]>;
   orderSubscription: any;
-  orderList: any[];
+  orderList: IOrder[];
+  itemsCount: number = 0;
+
+  tableResource: DataTableResource<IOrder>;
   constructor(private adminOrders: AdminOrders) { }
 
   ngOnInit() {
@@ -25,8 +29,10 @@ export class AdminOrdersComponent implements OnInit {
     });
   }
 
-  private initializeDataTable(orders){
-
+  private initializeDataTable(orders: IOrder[]){
+    this.tableResource = new DataTableResource(orders);
+    this.tableResource.query({ offset: 0 }).then(item => this.orderList = item);
+    this.tableResource.count().then(count => this.itemsCount = count);
   }
 
 

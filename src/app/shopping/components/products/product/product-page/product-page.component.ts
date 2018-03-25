@@ -64,7 +64,7 @@ export class ProductPageComponent implements OnInit {
           !this.entryExists(this.desiredShoeSize) &&
           !this.oppositesExist(this.desiredShoeSize) &&
           !this.filteredExist(this.desiredShoeSize)) {
-        this.productService.createSwap(this.product.ID, this.appUser.ID, this.desiredShoeSize, this.tradeShoeSize, this.product.title);
+        this.productService.createSwap(this.product.ID, this.appUser, this.desiredShoeSize, this.tradeShoeSize, this.product.title);
         this.routerRoute.navigateByUrl('');
       } else {
         // show some message
