@@ -4,17 +4,18 @@
 
 .card {
     margin-bottom: 20px;
+    min-height: 175px;
+    max-height: 250px;
 }
 
-
-.card-footer button {
-  cursor: pointer;
+#product-img {
+    object-fit: contain;
+    height:100%;
+    width:100%;
+    padding: 15%;
+    padding-bottom: 2.5% !important;
 }
 
-.card-footer {
-  padding: 0;
-  margin: 0;
-  border : 0;
-  margin-left: -1px;
+#card-title {
+    font-size: 0.85em;
 }
-

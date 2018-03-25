@@ -1,10 +1,8 @@
-import { ShoppingCart } from 'shared/models/shopping-cart';
 import { OrderService } from 'shared/services/order.service';
-import { Order } from 'shared/models/order';
 import { Router } from '@angular/router';
 import { AuthService } from 'shared/services/auth.service';
 import { Subscription } from 'rxjs/Subscription';
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 
 @Component({
   selector: 'shipping-form',
@@ -13,7 +11,6 @@ import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 })
 export class ShippingFormComponent implements OnInit, OnDestroy {
 
-  @Input('cart') carts: ShoppingCart;
   disableBtn: boolean;
   userId: string;
   userName: string;
@@ -39,19 +36,19 @@ export class ShippingFormComponent implements OnInit, OnDestroy {
 
   save(shipping) {
 
-    let order = new Order(this.userId, this.userName, shipping, this.carts);
-
-    this.orderService.placeOrder(order)
-      .then(ref => {
-        this.router.navigate(['order-success', ref.key]);
-      })
-      .catch(err => {
-        this.disableBtn = false;
-        console.log(err);
-      });
-
-
-    this.disableBtn = true;
+    // // let order = new Order(this.userId, this.userName, shipping, this.carts);
+    //
+    // this.orderService.placeOrder(order)
+    //   .then(ref => {
+    //     this.router.navigate(['order-success', ref.key]);
+    //   })
+    //   .catch(err => {
+    //     this.disableBtn = false;
+    //     console.log(err);
+    //   });
+    //
+    //
+    // this.disableBtn = true;
 
   }
 

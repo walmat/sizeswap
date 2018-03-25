@@ -26,7 +26,6 @@ export class ProductPageComponent implements OnInit {
     constructor(
     private route: ActivatedRoute,
     private productService: ProductService,
-    private userService: UserService,
     private auth: AuthService
   ) {
     this.isDataAvailable = false;

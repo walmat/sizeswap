@@ -16,8 +16,8 @@
           <input #swaps="ngModel" [(ngModel)]="product.swaps" name="swaps" type="number" class="form-control" id="swaps" required [min]="0">
         </div>
         <div class="alert alert-danger" *ngIf="swaps.touched && swaps.invalid">
-          <div *ngIf="price.errors.required">Swaps is requried.</div>
-          <div *ngIf="price.errors.min">Swaps should be zero or higher.</div>
+          <div *ngIf="swaps.errors.required">Swaps is requried.</div>
+          <div *ngIf="swaps.errors.min">Swaps should be zero or higher.</div>
         </div>
       </div>
 
@@ -51,6 +51,6 @@
     </form>
   </div>
   <div class="col-md-6" *ngIf="product.title || product.imageUrl">
-    <product-card [product]="product" [width]="22" [show-actions]="false"></product-card>
+    <product-card [product]="product" [width]="22"></product-card>
   </div>
 </div>

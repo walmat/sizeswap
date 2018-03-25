@@ -1,15 +1,22 @@
-<div *ngIf="isDataAvailable">
+<div *ngIf="isDataAvailable" style="width:100%;">
     <div>
-        <product-card [product]="product" [width]="20" [shopping-cart]="cart"></product-card>
-
-        <select id='desired-shoe' name="Desired Shoe Size" (input)="desiredShoe($event)">
-                <option value="">Select Desired Shoe Size</option>
-                <option *ngFor="let size of shoeSizes;" [ngValue]="size">{{size}}</option>
-        </select>
-        <select id='trade-shoe' name="Trade Shoe Size" (input)="tradeShoe($event)">
-                <option value="">Select Trade Shoe Size</option>
-                <option *ngFor="let size of shoeSizes;" [ngValue]="size">{{size}}</option>
-        </select>
-        <button (click)="onSubmit()">Submit Order</button>
+        <product-card [product]="product" [width]="20"></product-card>
+        <div class="flex-container">
+            <div class="flexitems">
+                <select id='desired-shoe' name="Desired Shoe Size" (input)="desiredShoe($event)">
+                    <option value="">Select Desired Shoe Size</option>
+                    <option *ngFor="let size of shoeSizes;" [ngValue]="size">{{size}}</option>
+                </select>
+                <select id='trade-shoe' name="Trade Shoe Size" (input)="tradeShoe($event)">
+                    <option value="">Select Trade Shoe Size</option>
+                    <option *ngFor="let size of shoeSizes;" [ngValue]="size">{{size}}</option>
+                </select>
+            </div>
+        </div>
+        <div class="flex-container" style="margin: 5%;">
+            <div class="flexitems">
+                <button id="submit-button" (click)="onSubmit()">Submit Order</button>
+            </div>
+        </div>
     </div>
 </div>
