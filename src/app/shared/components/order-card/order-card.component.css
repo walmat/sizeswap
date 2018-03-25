@@ -37,3 +37,15 @@
     align-items: center;
     align-content: center;
 }
+
+#confirm {
+    color: #86CD82;
+    font-size: 1em;
+}:before {
+    padding: 0 5px 0 5px;
+ }
+
+#cancel {
+    color: #A63D40;
+    font-size: 1em;
+}
