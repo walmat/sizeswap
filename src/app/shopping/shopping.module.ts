@@ -11,17 +11,17 @@ import { ProductsComponent } from './components/products/products.component';
 import { ShippingFormComponent } from './components/shipping-form/shipping-form.component';
 import { ShopingCartComponent } from './components/shoping-cart/shoping-cart.component';
 import { ShoppingCartSummaryComponent } from './components/shopping-cart-summary/shopping-cart-summary.component';
-import { AccountComponent } from './components/account/account.component';
-import { PaypalComponent } from './components/paypal/paypal.component';
+import { ProductPageComponent } from './components/products/product/product-page/product-page.component';
 
 @NgModule({
   imports: [
     SharedModule,
     RouterModule.forChild([
     { path: 'cart', component: ShopingCartComponent },
-    { path: 'Products', component: ProductsComponent },
-    { path: 'orders', component: MyOrdersComponent, canActivate: [AuthGuardService] },
-    { path: 'account', component: AccountComponent, canActivate: [AuthGuardService] },
+    { path: 'products', component: ProductsComponent },
+    { path: 'products/:title', component: ProductPageComponent},
+    { path: 'myorders', component: MyOrdersComponent, canActivate: [AuthGuardService] },
+    // { path: 'myaccount', component: MyAccountComponent, canActivate: [AuthGuardService] },
     { path: 'checkout', component: CheckOutComponent, canActivate: [AuthGuardService] },
     { path: 'order-success/:id', component: OrderSuccssComponent, canActivate: [AuthGuardService] },
     { path: 'order-details/:id', component: OrderViewComponent, canActivate: [AuthGuardService] }
@@ -36,8 +36,7 @@ import { PaypalComponent } from './components/paypal/paypal.component';
     ShoppingCartSummaryComponent,
     ShippingFormComponent,
     OrderViewComponent,
-    AccountComponent,
-    PaypalComponent
+    ProductPageComponent,
   ]
 })
 export class ShoppingModule { }

@@ -2,6 +2,7 @@ import { ShoppingCart } from '../../models/shopping-cart';
 import { ShoppingCartService } from '../../services/shopping-cart.service';
 import { IProduct } from '../../models/product';
 import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'product-card',
@@ -15,7 +16,10 @@ export class ProductCardComponent implements OnInit {
   @Input('show-actions') showActions = true;
   @Input('shopping-cart') shoppingCart: ShoppingCart;
 
-  constructor(private cartService: ShoppingCartService) { }
+  constructor(
+    private cartService: ShoppingCartService,
+    private route: Router
+  ) { }
 
   ngOnInit() {
   }
@@ -23,5 +27,10 @@ export class ProductCardComponent implements OnInit {
   // addToCart() {
   //   this.cartService.addToCart(this.product);
   // }
+
+  selectProduct() {
+    let titleWithDashes = this.product.title.split(' ').join('-');
+    this.route.navigateByUrl(`/products/${titleWithDashes}`);
+  }
 
 }

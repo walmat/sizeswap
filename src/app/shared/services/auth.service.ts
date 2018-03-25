@@ -29,7 +29,6 @@ export class AuthService {
         if (user) {
           return this.userService.get(user.uid);
         }
-
         return Observable.of(null);
       });
   }
