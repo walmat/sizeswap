@@ -3,7 +3,6 @@ import { RouterModule } from '@angular/router';
 import { AuthGuardService } from 'shared/services/auth-guard.service';
 import { SharedModule } from 'shared/shared.module';
 
-import { CheckOutComponent } from './components/check-out/check-out.component';
 import { MyOrdersComponent } from './components/my-orders/my-orders.component';
 import { OrderSuccssComponent } from './components/order-succss/order-succss.component';
 import { OrderViewComponent } from './components/order-view/order-view.component';
@@ -21,14 +20,12 @@ import { ProductPageComponent } from './components/products/product/product-page
     { path: 'products/:title', component: ProductPageComponent},
     { path: 'orders', component: MyOrdersComponent, canActivate: [AuthGuardService] },
     // { path: 'myaccount', component: MyAccountComponent, canActivate: [AuthGuardService] },
-    { path: 'checkout', component: CheckOutComponent, canActivate: [AuthGuardService] },
     { path: 'order-success/:id', component: OrderSuccssComponent, canActivate: [AuthGuardService] },
     { path: 'order-details/:id', component: OrderViewComponent, canActivate: [AuthGuardService] }
   ])
   ],
   declarations: [
     ProductsComponent,
-    CheckOutComponent,
     OrderSuccssComponent,
     ShopingCartComponent,
     MyOrdersComponent,
