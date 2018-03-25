@@ -1,14 +1,16 @@
 import { fireBaseKey } from 'private/firebase-key';
 
-// The file contents for the current environment will overwrite these during build.
-// The build system defaults to the dev environment which uses `environment.ts`, but if you do
-// `ng build --env=prod` then `environment.prod.ts` will be used instead.
-// The list of which env maps to which file can be found in `.angular-cli.json`.
-
 export const environment = {
   production: false,
-  firebase: {
-    ...fireBaseKey
-  }
-
+  // firebase: {
+  //   ...fireBaseKey
+  // }
+    firebase: {
+        apiKey: 'AIzaSyB08FZ4nd2_1kenBqJzv7t-u0f0q2W0UIo',
+        authDomain: 'size-swap.firebaseapp.com',
+        databaseURL: 'https://size-swap.firebaseio.com',
+        projectId: 'size-swap',
+        storageBucket: 'size-swap.appspot.com',
+        messagingSenderId: '108876455375'
+    }
 };

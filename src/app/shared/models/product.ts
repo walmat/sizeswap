@@ -1,7 +1,7 @@
 export interface IProduct {
   $key?: string;
   title: string;
-  price: number;
+  swaps: number;
   category: string;
   imageUrl: string;
 }
