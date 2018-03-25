@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ProductService } from 'shared/services/product.service';
 import getShoeSizes from 'app/getShoeSizes';
 import {AuthService} from 'shared/services/auth.service';
@@ -25,6 +25,7 @@ export class ProductPageComponent implements OnInit {
 
     constructor(
     private route: ActivatedRoute,
+    private routerRoute: Router,
     private productService: ProductService,
     private userService: UserService,
     private auth: AuthService
@@ -63,8 +64,8 @@ export class ProductPageComponent implements OnInit {
           !this.entryExists(this.desiredShoeSize) &&
           !this.oppositesExist(this.desiredShoeSize) &&
           !this.filteredExist(this.desiredShoeSize)) {
-        this.productService.createSwap(this.product.ID, this.appUser.ID, this.desiredShoeSize, this.tradeShoeSize);
-        
+        this.productService.createSwap(this.product.ID, this.appUser.ID, this.desiredShoeSize, this.tradeShoeSize, this.product.title);
+        this.routerRoute.navigateByUrl('');
       } else {
         // show some message
       }

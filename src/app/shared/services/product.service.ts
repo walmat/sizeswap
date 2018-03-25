@@ -45,14 +45,15 @@ export class ProductService {
     return this.db.object('/products/' + product_id + '/swaps/' + swap_id);
   }
 
-  createSwap(id, user, size_desired, size_has) {
+  createSwap(id, user, size_desired, size_has, productTitle) {
     fetch('http://localhost:3000', {
       method: 'POST',
       body: JSON.stringify({
         productID: id,
         user,
         in: size_has,
-        out: size_desired
+        out: size_desired,
+        productTitle
       })
     });
   }
