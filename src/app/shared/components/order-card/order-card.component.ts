@@ -30,10 +30,34 @@ export class OrderCardComponent implements OnInit {
             ref.map(v => {
                 if (v.buyerId === this.appUser.ID || v.requesterId === this.appUser.ID) {
                     this.pending_orders.push(v);
+                    console.log(v);
                 }
             });
         });
         console.log(this.pending_orders);
+    }
+
+    confirm() {
+        console.log('TEST');
+        fetch('http://localhost:3002', {
+            method: 'POST',
+            body: JSON.stringify({
+              userId: this.appUser.ID,
+              confirmation: true,
+              pendingSwapKey: this.pending_orders.pop().$key
+            })
+        });
+    }
+
+    cancel() {
+        fetch('http://localhost:3002', {
+            method: 'POST',
+            body: JSON.stringify({
+              userId: this.appUser.ID,
+              confirmation: false,
+              pendingSwapKey: this.pending_orders.pop().$key
+            })
+        });
     }
 
 }
