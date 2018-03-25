@@ -14,13 +14,13 @@
           <div class="flexitems">
             <p style="font-size: 0.85em;text-decoration: underline;">Confirmed Swaps</p>
             <ul *ngFor="let pending of pending_orders;" style="list-style: none;padding-left: 0; margin-top: 0;">
-              <a href="" style="text-decoration: none; color: #000; margin: 0;"><li *ngIf="(pending.productTitle === product.title)" style="font-size: 1em;"> {{pending.buyerSize}} <i class="ion-ios-swap" id="swap-arrow"></i> {{pending.requesterSize}}</li></a>
+              <a href="" style="text-decoration: none; color: #000; margin: 0;"><li *ngIf="(pending.productTitle === product.title)" style="font-size: 1em;"> {{pending.buyerSize}} <i class="ion-md-swap" id="swap-arrow"></i> {{pending.requesterSize}}</li></a>
             </ul>
           </div>
           <div class="flexitems">
             <p style="font-size: 0.85em;text-decoration: underline;">Completed Swaps</p>
             <ul *ngFor="let pending of pending_orders;" style="list-style: none;padding-left: 0; margin-top: 0;">
-              <a href="" style="text-decoration: none; color: #000; margin: 0;"><li *ngIf="(pending.productTitle === product.title)" style="font-size: 1em;"> {{pending.buyerSize}} <i class="ion-ios-swap" id="swap-arrow"></i> {{pending.requesterSize}}</li></a>
+              <a href="" style="text-decoration: none; color: #000; margin: 0;"><li *ngIf="(pending.productTitle === product.title)" style="font-size: 1em;"> {{pending.buyerSize}} <i class="ion-md-swap" id="swap-arrow"></i> {{pending.requesterSize}}</li></a>
             </ul>
           </div>
         </div>

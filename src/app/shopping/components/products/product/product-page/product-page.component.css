@@ -1,20 +1,39 @@
 /* On the flex container */
 .flex-container {
     display: flex;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
-    /* You can set flex-wrap and
-       flex-direction individually */
-    flex-direction: row;
-    flex-wrap: wrap;
-    /* Or do it all in one line
-      with flex flow */
-    flex-flow: row wrap;
-    /* tweak where items line
-       up on the row
-       valid values are: flex-start,
-       flex-end, space-between,
-       space-around, stretch */
-    align-content: flex-end;
 }
+
+.flex-items {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+/*#product-img {*/
+    /*object-fit: contain;*/
+    /*padding: 2.5%;*/
+    /*padding-top:0%;*/
+    /*padding-bottom: 0% !important;*/
+/*}*/
+
+/*#card-title {*/
+    /*font-size: 0.65em;*/
+/*}*/
+
+/*.card img {*/
+    /*height: 200px;*/
+/*}*/
+
+/*.card {*/
+    /*margin-bottom: 20px;*/
+    /*min-height: 175px;*/
+    /*!*max-height: 300px;*!*/
+    /*!*overflow-y: scroll;*!*/
+/*}*/
+
+
       

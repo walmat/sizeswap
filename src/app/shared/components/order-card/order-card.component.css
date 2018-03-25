@@ -1,24 +1,20 @@
-#product-img {
-    object-fit: contain;
-    height:100%;
-    width:100%;
-    padding: 7.5%;
-    padding-top:2.5%;
-    padding-bottom: 2.5% !important;
-}
-
 #card-title {
     font-size: 0.65em;
 }
 
 .card img {
+    padding-top: 3.3%;
     height: 200px;
+}
+
+#product-img {
+    object-fit: contain;
 }
 
 .card {
     margin-bottom: 20px;
     min-height: 175px;
-    max-height: 300px;
+    max-height: 250px;
     overflow-y: scroll;
 }
 
